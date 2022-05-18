@@ -1,0 +1,397 @@
+.slider{
+    background-color: #4d4d4d;
+    height: 50vh;
+}
+.booking-widget_v2{
+    z-index: 1500;
+    margin-top: -3rem;
+}
+.bw-active-btn{
+    background-color: #0088dd !important;
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.bw-inactive-btn{
+    background-color: #ffffff !important;
+    color: #0088dd !important;
+    font-weight: normal;
+}
+
+.booking-widget .btn{
+    text-transform:uppercase;
+}
+.tab-menu{
+    z-index: 1000;
+}
+.booking-content, .manage-content, .checkin-content{
+    margin-top: -1rem;
+    border-radius: 15px;
+}
+.booking-content .form-check-input{
+    margin-top: 0 !important;
+    
+}
+
+
+.booking-content input[type=checkbox], input[type=radio] {
+    width: 20px;
+    height: 20px;
+    box-sizing: none !important;
+}
+
+.bw-lbl:hover{
+    border: 2px solid #0088dd;
+    border-radius: 12px;
+    transition: .3s;
+    cursor: pointer;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+
+    .bw-main-lbl p{
+        font-weight: bold;
+        color: #0088dd !important;
+    }
+    .bw-main-textinput small{
+        font-weight: 500;
+        color: #153d8a;
+    }
+}
+
+.bw-main-lbl {
+    border-radius: 10px 0 0 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #eeeeee;
+    border-right: 2px solid #ffffff !important;
+}
+
+.bw-main-textinput{
+    border-radius: 0 10px 10px 0;
+    background-color: #f1f1f1;
+    border: 1px solid #eeeeee;
+    p{
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: #4d4d4d;
+    }
+    i{
+        color:#4d4d4d;font-size: 1.2rem
+    }
+    .date-select-1{
+        margin: auto;
+        display:flex !important;
+    }
+    .date-select-2{
+        display: none !important;
+    }
+    .date-select-1, .date-select-2{
+        small{
+            div{
+                margin-top: -5px;
+            }
+            span{
+                text-transform: none !important;
+            }
+        }
+        p{
+            margin-top: -5px !important;
+            letter-spacing: normal !important;
+        }
+        .return-ico{
+            i{
+                opacity: .5;
+            }
+        }
+    }
+    .pss-btnCrd{
+        small{
+            div{
+                margin-top: -5px;
+            }
+            span{
+                text-transform: none !important;
+            }
+        }
+        p{
+            margin-top: -5px !important;
+            letter-spacing: normal !important;
+        }
+    }
+}
+.search-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input[type=text]{
+        position: relative;
+        padding: 15px 40px 15px 20px;
+        width: 20px;
+        color: #4d4d4d;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 100;
+        letter-spacing: 2px;
+        border: none;
+        border-radius: 5px;
+        background: #eeeeee;
+        transition: width 0.4s ease;
+        outline: none;
+        width: 70%;
+        &:focus{ width: 100%; }
+      }
+      
+      i{
+        position: relative;
+        left: -37px;
+        color: #0088dd;
+      }
+  }
+
+
+  .airport-list .list-group-item{
+      border-top: none !important;
+      border-right: none !important;
+      border-bottom: none !important;
+      border-left: 2px solid #0088dd;
+      a{
+          text-decoration: none;
+      }
+  }
+  .list-group-item:hover{
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+  
+  @media only screen and (max-width: 1278px){
+    .date-select-1{
+        margin: auto !important;
+        .small{
+            font-size: 75% !important;
+        }
+        .date-text{
+            font-size: 1rem;
+        }
+        .return-ico i{
+            font-size: 1rem;
+        }
+    }
+  }
+
+  @media only screen and (max-width: 1172px){
+    .date-select-1{
+        margin: auto !important;
+        small, .small{
+            font-size: 70%;
+        }
+        .date-text{
+            font-size: .9rem;
+        }
+        .return-ico{
+            padding: .5rem !important;
+        }
+    }
+  }
+  
+  @media only screen and (max-width: 1072px){
+    .date-select-1{
+        margin: auto !important;
+        .return-ico i{
+            font-size: .5rem !important;
+        }
+    }
+  }
+
+  @media only screen and (max-width: 1052px){
+    .date-select-1{
+        margin: auto !important;
+        .return-ico{
+            padding: 0;
+        }
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1040px){
+    .date-select-1{
+        margin-left: -.8rem !important;
+        margin-right: -.8rem !important;
+    }
+  }
+@media only screen and (max-width: 926px){
+    .booking-widget .btn{
+        font-size: small;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 810px){
+    .date-select-1{
+        small, .small{
+            font-size: 60% !important;
+        }
+        .date-text{
+            font-size: .8rem;
+        }
+        .return-ico i{
+            font-size: .5rem !important;
+        }
+    }
+  }
+
+  @media only screen and (max-width: 767px){
+    .date-select-1{
+        .small{
+            font-size: 80% !important;
+        }
+        .date-text{
+            font-size: 1.2rem;
+        }
+        .return-ico{
+            padding: 1rem !important;
+        }
+        .return-ico i{
+            font-size: 1rem !important;
+        }
+    }
+  }
+
+  @media only screen and (max-width: 649px){
+    .date-select-1{
+        .small{
+            font-size: 70% !important;
+        }
+        .date-text{
+            font-size: 1rem;
+        }
+        .return-ico{
+            padding: .8rem !important;
+        }
+        .return-ico i{
+            font-size: .8rem !important;
+        }
+    }
+  }
+
+
+  @media only screen and (max-width: 575px){
+    .date-select-1{
+        .small{
+            font-size: 80% !important;
+        }
+        .date-text{
+            font-size: 1.2rem;
+        }
+        .return-ico{
+            padding: 1rem !important;
+        }
+        .return-ico i{
+            font-size: 1rem !important;
+        }
+    }
+  }
+
+@media only screen and (max-width: 506px){
+    .booking-widget .tab-menu .col{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+}
+
+@media only screen and (max-width: 444px){
+    .date-select-1{
+        .small{
+            font-size: 70% !important;
+        }
+        .date-text{
+            font-size: 1rem;
+        }
+        .return-ico{
+            padding: .8rem !important;
+        }
+        .return-ico i{
+            font-size: .8rem !important;
+        }
+    }
+  }
+
+@media only screen and (max-width: 428px){
+    #btn-bookTrip{
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    #btn-bookTrip:after{
+        content: 'Book';
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    #btn-mgBooking{
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    #btn-mgBooking:after{
+        content: 'Manage';
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+}
+
+@media only screen and (max-width: 396px){
+    .date-select-1{
+        .small{
+            font-size: 65% !important;
+        }
+        .date-text{
+            font-size: .8rem;
+        }
+        .return-ico{
+            padding: .5rem !important;
+        }
+        .return-ico i{
+            font-size: .6rem !important;
+        }
+    }
+  }
+
+@media only screen and (max-width: 347px){
+    .booking-widget .tab-menu .col{
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+    .date-select-1{
+        .small{
+            font-size: 65% !important;
+        }
+        .date-text{
+            font-size: .8rem;
+        }
+        .return-ico{
+            padding: .2rem !important;
+        }
+        .return-ico i{
+            font-size: .5rem !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 332px){
+    .date-select-1{
+        margin-left: -.8rem !important;
+        margin-right: -.8rem !important;
+    }
+  }
+
+@media only screen and (max-width: 320px){
+    .date-select-1{
+        margin-left: -.8rem !important;
+        margin-right: -.8rem !important;
+    }
+}
+@media only screen and (max-width: 201px){
+    .booking-widget .btn{
+        font-size: 7px;
+    }
+}

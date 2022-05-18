@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS 4.3.1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font awesome 6.1.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet/less" type="text/css" href="/style.less">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="true">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Link LESS CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+
+
+    <title>SriLankan Airlines</title>
+</head>
+
+<body>
+    <section class="slider">
+
+    </section>
+    <!-- Booking Widget Section -->
+    <section class="booking-widget_v2 p-2">
+        <div class="row d-flex justify-content-center m-0">
+            <div class="col-md-8">
+                <!-- Booking Widget Content -->
+                <div class="booking-widget">
+                    <!-- Booking Widget Tab Menu -->
+                    <div class="row d-flex justify-content-between tab-menu m-0">
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn btn-primary w-100" id="btn-bookTrip">Book A Trip</button>
+                        </div>
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn btn-primary w-100" id="btn-mgBooking">Manage
+                                Booking</button>
+                        </div>
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn btn-primary w-100" id="btn-checkIn">Check In</button>
+                        </div>
+                    </div>
+                    <!-- Flight Booking Section -->
+                    <div class="row booking-content p-4 shadow bg-light" id="bookingContent">
+                        <!-- Redeem and Multi City Section -->
+                        <div class="d-flex justify-content-between">
+                            <div class="form-check d-flex align-items-center mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    &nbsp;Redeem&nbsp;<a data-toggle="tooltip"
+                                        title="FlySmiLes members must login to Earn and Redeem Miles"><i
+                                            class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mt-2">
+                                <a href="">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                <label class="form-check-label">
+                                    &nbsp;Multi City
+                                </label>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Booking Widget Form -->
+                        <div class="row mt-3 d-flex justify-content-center align-items-center">
+                            <!-- Departing Airport Select -->
+                            <div class="col-lg-6 col-md-8 col-sm-8 col-12 mb-2">
+                                <div class="row m-0 p-0 bw-lbl" data-toggle="modal" data-target="#depAirportListModal" id="departingAirportLbl">
+                                    <div class="col-lg-3 col-md-3 col-3 p-1 bw-main-lbl d-flex justify-content-center align-items-center">
+                                        <div>
+                                            <div class="row d-flex justify-content-center">
+                                                <p class="m-0 text-dark">
+                                                    <i class="fa-solid fa-plane-departure"></i>
+                                                </p>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-end">
+                                                <p class="m-0 text-dark">From</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-9 p-0 bw-main-textinput pr-3 pl-3">
+                                        <div class="row m-0 p-0 d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small>Select Departing Airport</small>
+                                                <p class="m-0">
+                                                    <span>CMB</span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Destination Airport Select -->
+                            <div class="col-lg-6 col-md-8 col-sm-8 col-12 mb-2">
+                                <div class="row m-0 p-0 bw-lbl" data-toggle="modal" data-target="#desAirportListModal" id="destinationAirportLbl">
+                                    <div class="col-lg-3 col-md-3 col-3 p-1 bw-main-lbl d-flex justify-content-center align-items-center">
+                                        <div>
+                                            <div class="row d-flex justify-content-center">
+                                                <p class="m-0 text-dark">
+                                                    <i class="fa-solid fa-plane-arrival"></i>
+                                                </p>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-end">
+                                                <p class="m-0 text-dark">To</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-9 p-0 bw-main-textinput pr-3 pl-3">
+                                        <div class="row m-0 p-0 d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small>Select Destination Airport</small>
+                                                <p class="m-0">
+                                                    <span>MAA</span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Select Date -->
+                            <div class="col-lg-6 col-md-8 col-sm-8 col-12 mb-2">
+                                <div class="row m-0 p-0 bw-lbl" data-toggle="modal" data-target="#calenderModal" id="calenderLbl">
+                                    <div class="col-lg-3 col-md-3 col-3 p-1 bw-main-lbl d-flex justify-content-center align-items-center">
+                                        <div>
+                                            <div class="row d-flex justify-content-center">
+                                                <p class="m-0 text-dark">
+                                                    <i class="fa-solid fa-calendar-day"></i>
+                                                </p>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-end">
+                                                <p class="m-0 text-dark">Date</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-9 p-0 bw-main-textinput pr-3 pl-3 d-flex align-items-center">
+                                        <div class="row d-flex justify-content-between align-items-center date-select-1">
+                                            <div class="text-center p-0">
+                                                <small><u>DEPATURE</u></small>
+                                                <p class="m-0">
+                                                    <span class="text-muted small">Tue</span>&nbsp;|&nbsp;<span class="date-text">02 May</span>
+                                                </p>
+                                            </div>
+                                            <div class="col text-center return-ico">
+                                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                                            </div>
+                                            <div class="text-center p-0">
+                                                <small><u>RETURN</u></small>
+                                                <p class="m-0">
+                                                    <span class="text-muted small">Sat</span>&nbsp;|&nbsp;<span class="date-text">21 May</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row m-0 p-0 d-flex justify-content-between align-items-center date-select-2">
+                                            <div class="p-0">
+                                                <small><u>DEPATURE</u></small>
+                                                <p class="m-0">
+                                                    <span class="text-muted small">Tue</span>&nbsp;|&nbsp;<span>02 May</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Class and Passenger Select -->
+                            <div class="col-lg-6 col-md-8 col-sm-8 col-12 mb-2">
+                                <div class="row m-0 p-0 bw-lbl">
+                                    <div class="col-lg-3 col-md-3 col-3 p-1 bw-main-lbl d-flex justify-content-center align-items-center">
+                                        <div>
+                                            <div class="row d-flex justify-content-center">
+                                                <p class="m-0 text-dark">
+                                                    <i class="fa-solid fa-users"></i>
+                                                </p>
+                                            </div>
+                                            <div class="row d-flex justify-content-center align-items-end">
+                                                <p class="m-0 text-dark">
+                                                    <i class="fa-solid fa-ticket"></i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-9 p-0 bw-main-textinput pr-3 pl-3">
+                                        <div class="row m-0 p-0 d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-muted"><b>1 Passenger</b></small>
+                                                <p class="m-0">
+                                                    <span>Economy</span>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <i class="fa-solid fa-angles-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Flexible Dates and Search Button -->
+                        <div class="d-flex justify-content-between">
+                            <div class="form-check d-flex align-items-center mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flxDateCheck" checked>
+                                <label class="form-check-label" for="flxDateCheck">
+                                    &nbsp;Flexible Dates</label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mt-2">
+                                <button type="button" class="btn btn-primary">Search Flight</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Manage Booking Section -->
+                    <div class="row manage-content p-4 shadow bg-light" id="manageContent">
+                        <p>Manage</p>
+                    </div>
+                    <!-- Check-In Section -->
+                    <div class="row checkin-content p-4 shadow bg-light" id="checkinContent">
+                        <p>Checkin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Departing Airports Modal -->
+    <div class="modal fade" id="depAirportListModal" tabindex="-1" role="dialog" aria-labelledby="depAirportList"
+        aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <h5 class="text-center"><i class="fa-solid fa-plane-departure"></i> Select Departing Airport</h5>
+                    <div class="search-bar">
+                        <input id="departSearch" placeholder='Search...' class='js-search' type="text" onkeyup="searchDeparts()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group mt-3 airport-list" id="departAirports">
+                        <li class="list-group-item"><a href="#">Abu Dhabi - United Arab Emirates (AUH)</a></li>
+                        <li class="list-group-item"><a href="#">Adelaide - Australia (ADL)</a></li>
+                        <li class="list-group-item"><a href="#">Amman - Jordan (AMM)</a></li>
+                        <li class="list-group-item"><a href="#">Amsterdam - Netherlands (AMS)</a></li>
+                        <li class="list-group-item"><a href="#">Ancona - Italy (AOI)</a></li>
+                        <li class="list-group-item"><a href="#">Athens - Greece (ATH)</a></li>
+                        <li class="list-group-item"><a href="#">Auckland - New Zealand (AKL)</a></li>
+                        <li class="list-group-item"><a href="#">Bahrain - Bahrain (BAH)</a></li>
+                        <li class="list-group-item"><a href="#">Bangkok - Thailand (BKK)</a></li>
+                        <li class="list-group-item"><a href="#">Barcelona - Spain (BCN)</a></li>
+                        <li class="list-group-item"><a href="#">Bari - Italy (BRI)</a></li>
+                        <li class="list-group-item"><a href="#">Batticaloa - Sri Lanka (BTC)</a></li>
+                        <li class="list-group-item"><a href="#">Beijing - China (PEK)</a></li>
+                        <li class="list-group-item"><a href="#">Beirut - Lebanon (BEY)</a></li>
+                        <li class="list-group-item"><a href="#">Belgrade - Serbia (BEG)</a></li>
+                        <li class="list-group-item"><a href="#">Bengaluru - India (BLR)</a></li>
+                        <li class="list-group-item"><a href="#">Bentota - Air Taxi - Sri Lanka (BJT)</a></li>
+                        <li class="list-group-item"><a href="#">Bergen - Norway (BGO)</a></li>
+                        <li class="list-group-item"><a href="#">Berlin - Germany (TXL)</a></li>
+                        <li class="list-group-item"><a href="#">Billund - Denmark (BLL)</a></li>
+                        <li class="list-group-item"><a href="#">Bologna - Italy (BLQ)</a></li>
+                        <li class="list-group-item"><a href="#">Brindisi - Italy (BDS)</a></li>
+                        <li class="list-group-item"><a href="#">Brisbane - Australia (BNE)</a></li>
+                        <li class="list-group-item"><a href="#">Brussels - Belgium (BRU)</a></li>
+                        <li class="list-group-item"><a href="#">Bucharest - Romania (OTP)</a></li>
+                        <li class="list-group-item"><a href="#">Budapest - Hungary (BUD)</a></li>
+                        <li class="list-group-item"><a href="#">Busan - Korea (PUS)</a></li>
+                        <li class="list-group-item"><a href="#">Cagliari - Italy (CAG)</a></li>
+                        <li class="list-group-item"><a href="#">Cairns - Australia (CNS)</a></li>
+                        <li class="list-group-item"><a href="#">Calgary - Canada (YYC)</a></li>
+                        <li class="list-group-item"><a href="#">Canberra - Australia (CBR)</a></li>
+                        <li class="list-group-item"><a href="#">Casablanca - Morocco (CMN)</a></li>
+                        <li class="list-group-item"><a href="#">Castlereagh-Air Taxi - Sri Lanka (NUF)</a></li>
+                        <li class="list-group-item"><a href="#">Catania - Italy (CTA)</a></li>
+                        <li class="list-group-item"><a href="#">Changsha - China (CSX)</a></li>
+                        <li class="list-group-item"><a href="#">Chengdu - China (CTU)</a></li>
+                        <li class="list-group-item"><a href="#">Chennai - India (MAA)</a></li>
+                        <li class="list-group-item"><a href="#">Chicago - United States (ORD)</a></li>
+                        <li class="list-group-item"><a href="#">Christchurch - New Zealand (CHC)</a></li>
+                        <li class="list-group-item"><a href="#">Coimbatore - India (CJB)</a></li>
+                        <li class="list-group-item"><a href="#">Colombo - Sri Lanka (CMB)</a></li>
+                        <li class="list-group-item"><a href="#">Copenhagen - Denmark (CPH)</a></li>
+                        <li class="list-group-item"><a href="#">Dallas - United States (DFW)</a></li>
+                        <li class="list-group-item"><a href="#">Dammam - Saudi Arabia (DMM)</a></li>
+                        <li class="list-group-item"><a href="#">Darwin - Australia (DRW)</a></li>
+                        <li class="list-group-item"><a href="#">Delhi - India (DEL)</a></li>
+                        <li class="list-group-item"><a href="#">Dhaka - Bangladesh (DAC)</a></li>
+                        <li class="list-group-item"><a href="#">Dickwella - Air Taxi - Sri Lanka (DIW)</a></li>
+                        <li class="list-group-item"><a href="#">Diyawanna Oya - Air Taxi - Sri Lanka (DWO)</a></li>
+                        <li class="list-group-item"><a href="#">Doha - Qatar (DOH)</a></li>
+                        <li class="list-group-item"><a href="#">Dubai - United Arab Emirates (DXB)</a></li>
+                        <li class="list-group-item"><a href="#">Dublin - Ireland (DUB)</a></li>
+                        <li class="list-group-item"><a href="#">Dusseldorf - Germany (DUS)</a></li>
+                        <li class="list-group-item"><a href="#">Edinburgh - United Kingdom (EDI)</a></li>
+                        <li class="list-group-item"><a href="#">Edmonton - Canada (YEG)</a></li>
+                        <li class="list-group-item"><a href="#">Florence - Italy (FLR)</a></li>
+                        <li class="list-group-item"><a href="#">Frankfurt - Germany (FRA)</a></li>
+                        <li class="list-group-item"><a href="#">Fukuoka - Japan (FUK)</a></li>
+                        <li class="list-group-item"><a href="#">Gan Island - Maldives (GAN)</a></li>
+                        <li class="list-group-item"><a href="#">Gaya - India (GAY)</a></li>
+                        <li class="list-group-item"><a href="#">Geneva - Switzerland (GVA)</a></li>
+                        <li class="list-group-item"><a href="#">Genoa - Italy (GOA)</a></li>
+                        <li class="list-group-item"><a href="#">Glasgow - United Kingdom (GLA)</a></li>
+                        <li class="list-group-item"><a href="#">Goteborg - Sweden (GOT)</a></li>
+                        <li class="list-group-item"><a href="#">Guangzhou - China (CAN)</a></li>
+                        <li class="list-group-item"><a href="#">Guilin - China (KWL)</a></li>
+                        <li class="list-group-item"><a href="#">Haikou - China (HAK)</a></li>
+                        <li class="list-group-item"><a href="#">Halifax - Canada (YHZ)</a></li>
+                        <li class="list-group-item"><a href="#">Hambanthota- Air Taxi - Sri Lanka (HRI)</a></li>
+                        <li class="list-group-item"><a href="#">Hamburg - Germany (HAM)</a></li>
+                        <li class="list-group-item"><a href="#">Hangzhou - China (HGH)</a></li>
+                        <li class="list-group-item"><a href="#">Hannover - Germany (HAJ)</a></li>
+                        <li class="list-group-item"><a href="#">Hanoi - Vietnam (HAN)</a></li>
+                        <li class="list-group-item"><a href="#">Helsinki - Finland (HEL)</a></li>
+                        <li class="list-group-item"><a href="#">Ho Chi Minh City - Vietnam (SGN)</a></li>
+                        <li class="list-group-item"><a href="#">Hobart - Australia (HBA)</a></li>
+                        <li class="list-group-item"><a href="#">Hong Kong - Hong Kong, China (HKG)</a></li>
+                        <li class="list-group-item"><a href="#">Hyderabad - India (HYD)</a></li>
+                        <li class="list-group-item"><a href="#">Istanbul - Turkey (IST)</a></li>
+                        <li class="list-group-item"><a href="#">Jakarta - Indonesia (CGK)</a></li>
+                        <li class="list-group-item"><a href="#">Jeddah - Saudi Arabia (JED)</a></li>
+                        <li class="list-group-item"><a href="#">Johannesburg - South Africa (JNB)</a></li>
+                        <li class="list-group-item"><a href="#">Kandy Polgolla Reservoir - Air Taxi - Sri Lanka (KDZ)</a></li>
+                        <li class="list-group-item"><a href="#">Karachi - Pakistan (KHI)</a></li>
+                        <li class="list-group-item"><a href="#">Kathmandu - Nepal (KTM)</a></li>
+                        <li class="list-group-item"><a href="#">Knock - Ireland (NOC)</a></li>
+                        <li class="list-group-item"><a href="#">Kochi - India (COK)</a></li>
+                        <li class="list-group-item"><a href="#">Koggala- Air Taxi - Sri Lanka (KCT)</a></li>
+                        <li class="list-group-item"><a href="#">Kolkata - India (CCU)</a></li>
+                        <li class="list-group-item"><a href="#">Kuala Lumpur - Malaysia (KUL)</a></li>
+                        <li class="list-group-item"><a href="#">Kunming - China (KMG)</a></li>
+                        <li class="list-group-item"><a href="#">Kuwait - Kuwait (KWI)</a></li>
+                        <li class="list-group-item"><a href="#">Lahore - Pakistan (LHE)</a></li>
+                        <li class="list-group-item"><a href="#">Lamezia Terme - Italy (SUF)</a></li>
+                        <li class="list-group-item"><a href="#">Langkawi - Malaysia (LGK)</a></li>
+                        <li class="list-group-item"><a href="#">Larnaca - Cyprus (LCA)</a></li>
+                        <li class="list-group-item"><a href="#">Lisbon - Portugal (LIS)</a></li>
+                        <li class="list-group-item"><a href="#">London - United Kingdom (LHR)</a></li>
+                        <li class="list-group-item"><a href="#">Los Angeles - United States (LAX)</a></li>
+                        <li class="list-group-item"><a href="#">Luxembourg - Luxembourg (LUX)</a></li>
+                        <li class="list-group-item"><a href="#">Lyon - France (LYS)</a></li>
+                        <li class="list-group-item"><a href="#">Madrid - Spain (MAD)</a></li>
+                        <li class="list-group-item"><a href="#">Madurai - India (IXM)</a></li>
+                        <li class="list-group-item"><a href="#">Male - Maldives (MLE)</a></li>
+                        <li class="list-group-item"><a href="#">Manchester - United Kingdom (MAN)</a></li>
+                        <li class="list-group-item"><a href="#">Manila - Philippines (MNL)</a></li>
+                        <li class="list-group-item"><a href="#">Marseille - France (MRS)</a></li>
+                        <li class="list-group-item"><a href="#">Matsuyama - Japan (MYJ)</a></li>
+                        <li class="list-group-item"><a href="#">Melbourne - Australia (MEL)</a></li>
+                        <li class="list-group-item"><a href="#">Miami - United States (MIA)</a></li>
+                        <li class="list-group-item"><a href="#">Milan - Italy (MXP)</a></li>
+                        <li class="list-group-item"><a href="#">Minsk - Belarus (MSQ)</a></li>
+                        <li class="list-group-item"><a href="#">Montreal - Canada (YUL)</a></li>
+                        <li class="list-group-item"><a href="#">Moscow - Russia (DME)</a></li>
+                        <li class="list-group-item"><a href="#">Mumbai - India (BOM)</a></li>
+                        <li class="list-group-item"><a href="#">Munich - Germany (MUC)</a></li>
+                        <li class="list-group-item"><a href="#">Muscat - Oman (MCT)</a></li>
+                        <li class="list-group-item"><a href="#">Nagoya - Japan (NGO)</a></li>
+                        <li class="list-group-item"><a href="#">Nanjing - China (NKG)</a></li>
+                        <li class="list-group-item"><a href="#">Nanning - China (NNG)</a></li>
+                        <li class="list-group-item"><a href="#">Naples - Italy (NAP)</a></li>
+                        <li class="list-group-item"><a href="#">New York - United States (JFK)</a></li>
+                        <li class="list-group-item"><a href="#">Newcastle - United Kingdom (NCL)</a></li>
+                        <li class="list-group-item"><a href="#">Nice - France (NCE)</a></li>
+                        <li class="list-group-item"><a href="#">Ningbo - China (NGB)</a></li>
+                        <li class="list-group-item"><a href="#">Nairobi - Kenya (NBO)</a></li>
+                        <li class="list-group-item"><a href="#">Okinawa - Japan (OKA)</a></li>
+                        <li class="list-group-item"><a href="#">Osaka - Japan (KIX)</a></li>
+                        <li class="list-group-item"><a href="#">Oslo - Norway (OSL)</a></li>
+                        <li class="list-group-item"><a href="#">Ottawa - Canada (YOW)</a></li>
+                        <li class="list-group-item"><a href="#">Palermo - Italy (PMO)</a></li>
+                        <li class="list-group-item"><a href="#">Paris - France (CDG)</a></li>
+                        <li class="list-group-item"><a href="#">Perth - Australia (PER)</a></li>
+                        <li class="list-group-item"><a href="#">Philadelphia - United States (PHL)</a></li>
+                        <li class="list-group-item"><a href="#">Phnom Penh - Cambodia (PNH)</a></li>
+                        <li class="list-group-item"><a href="#">Pisa - Italy (PSA)</a></li>
+                        <li class="list-group-item"><a href="#">Porto - Portugal (OPO)</a></li>
+                        <li class="list-group-item"><a href="#">Prague - Czech Republic (PRG)</a></li>
+                        <li class="list-group-item"><a href="#">Qingdao - China (TAO)</a></li>
+                        <li class="list-group-item"><a href="#">Reggio Di Calabria - Italy (REG)</a></li>
+                        <li class="list-group-item"><a href="#">Riga - Latvia (RIX)</a></li>
+                        <li class="list-group-item"><a href="#">Riyadh - Saudi Arabia (RUH)</a></li>
+                        <li class="list-group-item"><a href="#">Rome - Italy (FCO)</a></li>
+                        <li class="list-group-item"><a href="#">Saint Johns - Canada (YYT)</a></li>
+                        <li class="list-group-item"><a href="#">San Francisco - United States (SFO)</a></li>
+                        <li class="list-group-item"><a href="#">Sanya - China (SYX)</a></li>
+                        <li class="list-group-item"><a href="#">Sapporo - Japan (CTS)</a></li>
+                        <li class="list-group-item"><a href="#">Seoul - Korea (ICN)</a></li>
+                        <li class="list-group-item"><a href="#">Seychelles - Seychelles (SEZ)</a></li>
+                        <li class="list-group-item"><a href="#">Shanghai - China (PVG)</a></li>
+                        <li class="list-group-item"><a href="#">Shannon - Ireland (SNN)</a></li>
+                        <li class="list-group-item"><a href="#">Sharjah - United Arab Emirates (SHJ)</a></li>
+                        <li class="list-group-item"><a href="#">Sigiriya- Air Taxi - Sri Lanka (GIU)</a></li>
+                        <li class="list-group-item"><a href="#">Singapore - Singapore (SIN)</a></li>
+                        <li class="list-group-item"><a href="#">Sofia - Bulgaria (SOF)</a></li>
+                        <li class="list-group-item"><a href="#">Stavanger - Norway (SVG)</a></li>
+                        <li class="list-group-item"><a href="#">Stockholm - Sweden (ARN)</a></li>
+                        <li class="list-group-item"><a href="#">Stuttgart - Germany (STR)</a></li>
+                        <li class="list-group-item"><a href="#">Sydney - Australia (SYD)</a></li>
+                        <li class="list-group-item"><a href="#">Taipei - Taiwan, China (TPE)</a></li>
+                        <li class="list-group-item"><a href="#">Tel Aviv Yafo - Israel (TLV)</a></li>
+                        <li class="list-group-item"><a href="#">Thiruvananthapuram - India (TRV)</a></li>
+                        <li class="list-group-item"><a href="#">Tiruchirapally - India (TRZ)</a></li>
+                        <li class="list-group-item"><a href="#">Tokyo - Japan (NRT)</a></li>
+                        <li class="list-group-item"><a href="#">Tokyo - Japan (HND)</a></li>
+                        <li class="list-group-item"><a href="#">Toronto - Canada (YYZ)</a></li>
+                        <li class="list-group-item"><a href="#">Toulouse - France (TLS)</a></li>
+                        <li class="list-group-item"><a href="#">Trieste - Italy (TRS)</a></li>
+                        <li class="list-group-item"><a href="#">Trincomalee- Air Taxi - Sri Lanka (TRR)</a></li>
+                        <li class="list-group-item"><a href="#">Turin - Italy (TRN)</a></li>
+                        <li class="list-group-item"><a href="#">Vancouver - Canada (YVR)</a></li>
+                        <li class="list-group-item"><a href="#">Varanasi - India (VNS)</a></li>
+                        <li class="list-group-item"><a href="#">Venice - Italy (VCE)</a></li>
+                        <li class="list-group-item"><a href="#">Verona - Italy (VRN)</a></li>
+                        <li class="list-group-item"><a href="#">Victoria - Canada (YYJ)</a></li>
+                        <li class="list-group-item"><a href="#">Vienna - Austria (VIE)</a></li>
+                        <li class="list-group-item"><a href="#">Vilnius - Lithuania (VNO)</a></li>
+                        <li class="list-group-item"><a href="#">Warsaw - Poland (WAW)</a></li>
+                        <li class="list-group-item"><a href="#">Washington - United States (IAD)</a></li>
+                        <li class="list-group-item"><a href="#">Wellington - New Zealand (WLG)</a></li>
+                        <li class="list-group-item"><a href="#">Wenzhou - China (WNZ)</a></li>
+                        <li class="list-group-item"><a href="#">Wuhan - China (WUH)</a></li>
+                        <li class="list-group-item"><a href="#">Xi An - China (SIA)</a></li>
+                        <li class="list-group-item"><a href="#">Xiamen - China (XMN)</a></li>
+                        <li class="list-group-item"><a href="#">Yangon - Myanmar (RGN)</a></li>
+                        <li class="list-group-item"><a href="#">Zhengzhou - China (CGO)</a></li>
+                        <li class="list-group-item"><a href="#">Zurich - Switzerland (ZRH)</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Destination Airports Modal -->
+    <div class="modal fade" id="desAirportListModal" tabindex="-1" role="dialog" aria-labelledby="desAirportList"
+        aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <h5 class="text-center"><i class="fa-solid fa-plane-arrival"></i> Select Destination Airport</h5>
+                    <div class="search-bar">
+                        <input id="destinationSearch" placeholder='Search...' class='js-search' type="text" onkeyup="searchDestinations()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group mt-3 airport-list" id="destinationAirports">
+                        <li class="list-group-item"><a href="#">Abu Dhabi - United Arab Emirates (AUH)</a></li>
+                        <li class="list-group-item"><a href="#">Adelaide - Australia (ADL)</a></li>
+                        <li class="list-group-item"><a href="#">Amman - Jordan (AMM)</a></li>
+                        <li class="list-group-item"><a href="#">Amsterdam - Netherlands (AMS)</a></li>
+                        <li class="list-group-item"><a href="#">Ancona - Italy (AOI)</a></li>
+                        <li class="list-group-item"><a href="#">Athens - Greece (ATH)</a></li>
+                        <li class="list-group-item"><a href="#">Auckland - New Zealand (AKL)</a></li>
+                        <li class="list-group-item"><a href="#">Bahrain - Bahrain (BAH)</a></li>
+                        <li class="list-group-item"><a href="#">Bangkok - Thailand (BKK)</a></li>
+                        <li class="list-group-item"><a href="#">Barcelona - Spain (BCN)</a></li>
+                        <li class="list-group-item"><a href="#">Bari - Italy (BRI)</a></li>
+                        <li class="list-group-item"><a href="#">Batticaloa - Sri Lanka (BTC)</a></li>
+                        <li class="list-group-item"><a href="#">Beijing - China (PEK)</a></li>
+                        <li class="list-group-item"><a href="#">Beirut - Lebanon (BEY)</a></li>
+                        <li class="list-group-item"><a href="#">Belgrade - Serbia (BEG)</a></li>
+                        <li class="list-group-item"><a href="#">Bengaluru - India (BLR)</a></li>
+                        <li class="list-group-item"><a href="#">Bentota - Air Taxi - Sri Lanka (BJT)</a></li>
+                        <li class="list-group-item"><a href="#">Bergen - Norway (BGO)</a></li>
+                        <li class="list-group-item"><a href="#">Berlin - Germany (TXL)</a></li>
+                        <li class="list-group-item"><a href="#">Billund - Denmark (BLL)</a></li>
+                        <li class="list-group-item"><a href="#">Bologna - Italy (BLQ)</a></li>
+                        <li class="list-group-item"><a href="#">Brindisi - Italy (BDS)</a></li>
+                        <li class="list-group-item"><a href="#">Brisbane - Australia (BNE)</a></li>
+                        <li class="list-group-item"><a href="#">Brussels - Belgium (BRU)</a></li>
+                        <li class="list-group-item"><a href="#">Bucharest - Romania (OTP)</a></li>
+                        <li class="list-group-item"><a href="#">Budapest - Hungary (BUD)</a></li>
+                        <li class="list-group-item"><a href="#">Busan - Korea (PUS)</a></li>
+                        <li class="list-group-item"><a href="#">Cagliari - Italy (CAG)</a></li>
+                        <li class="list-group-item"><a href="#">Cairns - Australia (CNS)</a></li>
+                        <li class="list-group-item"><a href="#">Calgary - Canada (YYC)</a></li>
+                        <li class="list-group-item"><a href="#">Canberra - Australia (CBR)</a></li>
+                        <li class="list-group-item"><a href="#">Casablanca - Morocco (CMN)</a></li>
+                        <li class="list-group-item"><a href="#">Castlereagh-Air Taxi - Sri Lanka (NUF)</a></li>
+                        <li class="list-group-item"><a href="#">Catania - Italy (CTA)</a></li>
+                        <li class="list-group-item"><a href="#">Changsha - China (CSX)</a></li>
+                        <li class="list-group-item"><a href="#">Chengdu - China (CTU)</a></li>
+                        <li class="list-group-item"><a href="#">Chennai - India (MAA)</a></li>
+                        <li class="list-group-item"><a href="#">Chicago - United States (ORD)</a></li>
+                        <li class="list-group-item"><a href="#">Christchurch - New Zealand (CHC)</a></li>
+                        <li class="list-group-item"><a href="#">Coimbatore - India (CJB)</a></li>
+                        <li class="list-group-item"><a href="#">Colombo - Sri Lanka (CMB)</a></li>
+                        <li class="list-group-item"><a href="#">Copenhagen - Denmark (CPH)</a></li>
+                        <li class="list-group-item"><a href="#">Dallas - United States (DFW)</a></li>
+                        <li class="list-group-item"><a href="#">Dammam - Saudi Arabia (DMM)</a></li>
+                        <li class="list-group-item"><a href="#">Darwin - Australia (DRW)</a></li>
+                        <li class="list-group-item"><a href="#">Delhi - India (DEL)</a></li>
+                        <li class="list-group-item"><a href="#">Dhaka - Bangladesh (DAC)</a></li>
+                        <li class="list-group-item"><a href="#">Dickwella - Air Taxi - Sri Lanka (DIW)</a></li>
+                        <li class="list-group-item"><a href="#">Diyawanna Oya - Air Taxi - Sri Lanka (DWO)</a></li>
+                        <li class="list-group-item"><a href="#">Doha - Qatar (DOH)</a></li>
+                        <li class="list-group-item"><a href="#">Dubai - United Arab Emirates (DXB)</a></li>
+                        <li class="list-group-item"><a href="#">Dublin - Ireland (DUB)</a></li>
+                        <li class="list-group-item"><a href="#">Dusseldorf - Germany (DUS)</a></li>
+                        <li class="list-group-item"><a href="#">Edinburgh - United Kingdom (EDI)</a></li>
+                        <li class="list-group-item"><a href="#">Edmonton - Canada (YEG)</a></li>
+                        <li class="list-group-item"><a href="#">Florence - Italy (FLR)</a></li>
+                        <li class="list-group-item"><a href="#">Frankfurt - Germany (FRA)</a></li>
+                        <li class="list-group-item"><a href="#">Fukuoka - Japan (FUK)</a></li>
+                        <li class="list-group-item"><a href="#">Gan Island - Maldives (GAN)</a></li>
+                        <li class="list-group-item"><a href="#">Gaya - India (GAY)</a></li>
+                        <li class="list-group-item"><a href="#">Geneva - Switzerland (GVA)</a></li>
+                        <li class="list-group-item"><a href="#">Genoa - Italy (GOA)</a></li>
+                        <li class="list-group-item"><a href="#">Glasgow - United Kingdom (GLA)</a></li>
+                        <li class="list-group-item"><a href="#">Goteborg - Sweden (GOT)</a></li>
+                        <li class="list-group-item"><a href="#">Guangzhou - China (CAN)</a></li>
+                        <li class="list-group-item"><a href="#">Guilin - China (KWL)</a></li>
+                        <li class="list-group-item"><a href="#">Haikou - China (HAK)</a></li>
+                        <li class="list-group-item"><a href="#">Halifax - Canada (YHZ)</a></li>
+                        <li class="list-group-item"><a href="#">Hambanthota- Air Taxi - Sri Lanka (HRI)</a></li>
+                        <li class="list-group-item"><a href="#">Hamburg - Germany (HAM)</a></li>
+                        <li class="list-group-item"><a href="#">Hangzhou - China (HGH)</a></li>
+                        <li class="list-group-item"><a href="#">Hannover - Germany (HAJ)</a></li>
+                        <li class="list-group-item"><a href="#">Hanoi - Vietnam (HAN)</a></li>
+                        <li class="list-group-item"><a href="#">Helsinki - Finland (HEL)</a></li>
+                        <li class="list-group-item"><a href="#">Ho Chi Minh City - Vietnam (SGN)</a></li>
+                        <li class="list-group-item"><a href="#">Hobart - Australia (HBA)</a></li>
+                        <li class="list-group-item"><a href="#">Hong Kong - Hong Kong, China (HKG)</a></li>
+                        <li class="list-group-item"><a href="#">Hyderabad - India (HYD)</a></li>
+                        <li class="list-group-item"><a href="#">Istanbul - Turkey (IST)</a></li>
+                        <li class="list-group-item"><a href="#">Jakarta - Indonesia (CGK)</a></li>
+                        <li class="list-group-item"><a href="#">Jeddah - Saudi Arabia (JED)</a></li>
+                        <li class="list-group-item"><a href="#">Johannesburg - South Africa (JNB)</a></li>
+                        <li class="list-group-item"><a href="#">Kandy Polgolla Reservoir - Air Taxi - Sri Lanka (KDZ)</a></li>
+                        <li class="list-group-item"><a href="#">Karachi - Pakistan (KHI)</a></li>
+                        <li class="list-group-item"><a href="#">Kathmandu - Nepal (KTM)</a></li>
+                        <li class="list-group-item"><a href="#">Knock - Ireland (NOC)</a></li>
+                        <li class="list-group-item"><a href="#">Kochi - India (COK)</a></li>
+                        <li class="list-group-item"><a href="#">Koggala- Air Taxi - Sri Lanka (KCT)</a></li>
+                        <li class="list-group-item"><a href="#">Kolkata - India (CCU)</a></li>
+                        <li class="list-group-item"><a href="#">Kuala Lumpur - Malaysia (KUL)</a></li>
+                        <li class="list-group-item"><a href="#">Kunming - China (KMG)</a></li>
+                        <li class="list-group-item"><a href="#">Kuwait - Kuwait (KWI)</a></li>
+                        <li class="list-group-item"><a href="#">Lahore - Pakistan (LHE)</a></li>
+                        <li class="list-group-item"><a href="#">Lamezia Terme - Italy (SUF)</a></li>
+                        <li class="list-group-item"><a href="#">Langkawi - Malaysia (LGK)</a></li>
+                        <li class="list-group-item"><a href="#">Larnaca - Cyprus (LCA)</a></li>
+                        <li class="list-group-item"><a href="#">Lisbon - Portugal (LIS)</a></li>
+                        <li class="list-group-item"><a href="#">London - United Kingdom (LHR)</a></li>
+                        <li class="list-group-item"><a href="#">Los Angeles - United States (LAX)</a></li>
+                        <li class="list-group-item"><a href="#">Luxembourg - Luxembourg (LUX)</a></li>
+                        <li class="list-group-item"><a href="#">Lyon - France (LYS)</a></li>
+                        <li class="list-group-item"><a href="#">Madrid - Spain (MAD)</a></li>
+                        <li class="list-group-item"><a href="#">Madurai - India (IXM)</a></li>
+                        <li class="list-group-item"><a href="#">Male - Maldives (MLE)</a></li>
+                        <li class="list-group-item"><a href="#">Manchester - United Kingdom (MAN)</a></li>
+                        <li class="list-group-item"><a href="#">Manila - Philippines (MNL)</a></li>
+                        <li class="list-group-item"><a href="#">Marseille - France (MRS)</a></li>
+                        <li class="list-group-item"><a href="#">Matsuyama - Japan (MYJ)</a></li>
+                        <li class="list-group-item"><a href="#">Melbourne - Australia (MEL)</a></li>
+                        <li class="list-group-item"><a href="#">Miami - United States (MIA)</a></li>
+                        <li class="list-group-item"><a href="#">Milan - Italy (MXP)</a></li>
+                        <li class="list-group-item"><a href="#">Minsk - Belarus (MSQ)</a></li>
+                        <li class="list-group-item"><a href="#">Montreal - Canada (YUL)</a></li>
+                        <li class="list-group-item"><a href="#">Moscow - Russia (DME)</a></li>
+                        <li class="list-group-item"><a href="#">Mumbai - India (BOM)</a></li>
+                        <li class="list-group-item"><a href="#">Munich - Germany (MUC)</a></li>
+                        <li class="list-group-item"><a href="#">Muscat - Oman (MCT)</a></li>
+                        <li class="list-group-item"><a href="#">Nagoya - Japan (NGO)</a></li>
+                        <li class="list-group-item"><a href="#">Nanjing - China (NKG)</a></li>
+                        <li class="list-group-item"><a href="#">Nanning - China (NNG)</a></li>
+                        <li class="list-group-item"><a href="#">Naples - Italy (NAP)</a></li>
+                        <li class="list-group-item"><a href="#">New York - United States (JFK)</a></li>
+                        <li class="list-group-item"><a href="#">Newcastle - United Kingdom (NCL)</a></li>
+                        <li class="list-group-item"><a href="#">Nice - France (NCE)</a></li>
+                        <li class="list-group-item"><a href="#">Ningbo - China (NGB)</a></li>
+                        <li class="list-group-item"><a href="#">Nairobi - Kenya (NBO)</a></li>
+                        <li class="list-group-item"><a href="#">Okinawa - Japan (OKA)</a></li>
+                        <li class="list-group-item"><a href="#">Osaka - Japan (KIX)</a></li>
+                        <li class="list-group-item"><a href="#">Oslo - Norway (OSL)</a></li>
+                        <li class="list-group-item"><a href="#">Ottawa - Canada (YOW)</a></li>
+                        <li class="list-group-item"><a href="#">Palermo - Italy (PMO)</a></li>
+                        <li class="list-group-item"><a href="#">Paris - France (CDG)</a></li>
+                        <li class="list-group-item"><a href="#">Perth - Australia (PER)</a></li>
+                        <li class="list-group-item"><a href="#">Philadelphia - United States (PHL)</a></li>
+                        <li class="list-group-item"><a href="#">Phnom Penh - Cambodia (PNH)</a></li>
+                        <li class="list-group-item"><a href="#">Pisa - Italy (PSA)</a></li>
+                        <li class="list-group-item"><a href="#">Porto - Portugal (OPO)</a></li>
+                        <li class="list-group-item"><a href="#">Prague - Czech Republic (PRG)</a></li>
+                        <li class="list-group-item"><a href="#">Qingdao - China (TAO)</a></li>
+                        <li class="list-group-item"><a href="#">Reggio Di Calabria - Italy (REG)</a></li>
+                        <li class="list-group-item"><a href="#">Riga - Latvia (RIX)</a></li>
+                        <li class="list-group-item"><a href="#">Riyadh - Saudi Arabia (RUH)</a></li>
+                        <li class="list-group-item"><a href="#">Rome - Italy (FCO)</a></li>
+                        <li class="list-group-item"><a href="#">Saint Johns - Canada (YYT)</a></li>
+                        <li class="list-group-item"><a href="#">San Francisco - United States (SFO)</a></li>
+                        <li class="list-group-item"><a href="#">Sanya - China (SYX)</a></li>
+                        <li class="list-group-item"><a href="#">Sapporo - Japan (CTS)</a></li>
+                        <li class="list-group-item"><a href="#">Seoul - Korea (ICN)</a></li>
+                        <li class="list-group-item"><a href="#">Seychelles - Seychelles (SEZ)</a></li>
+                        <li class="list-group-item"><a href="#">Shanghai - China (PVG)</a></li>
+                        <li class="list-group-item"><a href="#">Shannon - Ireland (SNN)</a></li>
+                        <li class="list-group-item"><a href="#">Sharjah - United Arab Emirates (SHJ)</a></li>
+                        <li class="list-group-item"><a href="#">Sigiriya- Air Taxi - Sri Lanka (GIU)</a></li>
+                        <li class="list-group-item"><a href="#">Singapore - Singapore (SIN)</a></li>
+                        <li class="list-group-item"><a href="#">Sofia - Bulgaria (SOF)</a></li>
+                        <li class="list-group-item"><a href="#">Stavanger - Norway (SVG)</a></li>
+                        <li class="list-group-item"><a href="#">Stockholm - Sweden (ARN)</a></li>
+                        <li class="list-group-item"><a href="#">Stuttgart - Germany (STR)</a></li>
+                        <li class="list-group-item"><a href="#">Sydney - Australia (SYD)</a></li>
+                        <li class="list-group-item"><a href="#">Taipei - Taiwan, China (TPE)</a></li>
+                        <li class="list-group-item"><a href="#">Tel Aviv Yafo - Israel (TLV)</a></li>
+                        <li class="list-group-item"><a href="#">Thiruvananthapuram - India (TRV)</a></li>
+                        <li class="list-group-item"><a href="#">Tiruchirapally - India (TRZ)</a></li>
+                        <li class="list-group-item"><a href="#">Tokyo - Japan (NRT)</a></li>
+                        <li class="list-group-item"><a href="#">Tokyo - Japan (HND)</a></li>
+                        <li class="list-group-item"><a href="#">Toronto - Canada (YYZ)</a></li>
+                        <li class="list-group-item"><a href="#">Toulouse - France (TLS)</a></li>
+                        <li class="list-group-item"><a href="#">Trieste - Italy (TRS)</a></li>
+                        <li class="list-group-item"><a href="#">Trincomalee- Air Taxi - Sri Lanka (TRR)</a></li>
+                        <li class="list-group-item"><a href="#">Turin - Italy (TRN)</a></li>
+                        <li class="list-group-item"><a href="#">Vancouver - Canada (YVR)</a></li>
+                        <li class="list-group-item"><a href="#">Varanasi - India (VNS)</a></li>
+                        <li class="list-group-item"><a href="#">Venice - Italy (VCE)</a></li>
+                        <li class="list-group-item"><a href="#">Verona - Italy (VRN)</a></li>
+                        <li class="list-group-item"><a href="#">Victoria - Canada (YYJ)</a></li>
+                        <li class="list-group-item"><a href="#">Vienna - Austria (VIE)</a></li>
+                        <li class="list-group-item"><a href="#">Vilnius - Lithuania (VNO)</a></li>
+                        <li class="list-group-item"><a href="#">Warsaw - Poland (WAW)</a></li>
+                        <li class="list-group-item"><a href="#">Washington - United States (IAD)</a></li>
+                        <li class="list-group-item"><a href="#">Wellington - New Zealand (WLG)</a></li>
+                        <li class="list-group-item"><a href="#">Wenzhou - China (WNZ)</a></li>
+                        <li class="list-group-item"><a href="#">Wuhan - China (WUH)</a></li>
+                        <li class="list-group-item"><a href="#">Xi An - China (SIA)</a></li>
+                        <li class="list-group-item"><a href="#">Xiamen - China (XMN)</a></li>
+                        <li class="list-group-item"><a href="#">Yangon - Myanmar (RGN)</a></li>
+                        <li class="list-group-item"><a href="#">Zhengzhou - China (CGO)</a></li>
+                        <li class="list-group-item"><a href="#">Zurich - Switzerland (ZRH)</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calender Modal -->
+    <div class="modal fade" id="calenderModal" tabindex="-1" role="dialog" aria-labelledby="calenderList"
+        aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <h5 class="text-center">Choose your departure date</h5>
+                    <div class="search-bar">
+                        <input id="destinationSearch" placeholder='Search...' class='js-search' type="text" onkeyup="searchDestinations()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="./javascript.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
